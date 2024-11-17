@@ -1,5 +1,9 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, request, jsonify, render_template
 from analyze import read_image
+
 
 app = Flask(__name__, template_folder='templates')
 
@@ -9,7 +13,7 @@ def home():
 
 
 # API at /api/v1/analysis/ 
-@app.route("/api/v1/analysis/", methods=['GET'])
+@app.route("/api/v1/analysis/", methods=['POST'])
 def analysis():
     # Try to get the URI from the JSON
     try:

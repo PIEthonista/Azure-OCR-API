@@ -1,10 +1,11 @@
-from azure.cognitiveservices.vision.computervision import ComputerVisionClient
-from msrest.authentication import CognitiveServicesCredentials
-from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
+import os
 import time
+from msrest.authentication import CognitiveServicesCredentials
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
+from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
 
-endpoint = "ENTER ENDPOINT HERE"
-key = "ENTER KEY HERE"
+endpoint = os.getenv("BASE_URL")
+key = os.getenv("API_KEY")
 
 credentials = CognitiveServicesCredentials(key)
 
