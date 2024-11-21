@@ -37,7 +37,8 @@ class ImageAnalysis(Resource):
             get_json = request.get_json()
             image_uri = get_json['uri']
         except:
-            return jsonify({'error': 'Missing URI in JSON'}), 400
+            # return jsonify({'error': 'Missing URI in JSON'}), 400
+            return {'error': 'Missing URI in JSON'}, 400
         
         # Try to get the text from the image
         try:
@@ -49,7 +50,8 @@ class ImageAnalysis(Resource):
         
             return response_data, 200
         except:
-            return jsonify({'error': 'Error in processing'}), 500
+            # return jsonify({'error': 'Error in processing'}), 500
+            return {'error': 'Error in processing'}, 500
 
 
 if __name__ == "__main__":
